@@ -1,0 +1,10 @@
+C:\Users\ilyaz\Documents\My_folders\Education\Курсовая прог. инж\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\bin\Debug\PhotoStudioPlanConstructor.exe.config
+C:\Users\ilyaz\Documents\My_folders\Education\Курсовая прог. инж\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\bin\Debug\PhotoStudioPlanConstructor.exe
+C:\Users\ilyaz\Documents\My_folders\Education\Курсовая прог. инж\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\bin\Debug\PhotoStudioPlanConstructor.pdb
+C:\Users\ilyaz\Documents\My_folders\Education\Курсовая прог. инж\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.csproj.AssemblyReference.cache
+C:\Users\ilyaz\Documents\My_folders\Education\Курсовая прог. инж\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.Form1.resources
+C:\Users\ilyaz\Documents\My_folders\Education\Курсовая прог. инж\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.Properties.Resources.resources
+C:\Users\ilyaz\Documents\My_folders\Education\Курсовая прог. инж\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.csproj.GenerateResource.cache
+C:\Users\ilyaz\Documents\My_folders\Education\Курсовая прог. инж\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.csproj.CoreCompileInputs.cache
+C:\Users\ilyaz\Documents\My_folders\Education\Курсовая прог. инж\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.exe
+C:\Users\ilyaz\Documents\My_folders\Education\Курсовая прог. инж\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.pdb
