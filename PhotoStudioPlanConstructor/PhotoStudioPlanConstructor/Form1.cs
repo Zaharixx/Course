@@ -36,11 +36,11 @@ namespace PhotoStudioPlanConstructor
         private int mocount;
         private int obcount;
 
-        private string pathBackground = "C:\\Users\\ilyaz\\Documents\\My_folders\\Education\\Курсовая прог. инж\\PhotoStudioPlanConstructor\\PhotoStudioPlanConstructor\\Фон1.png";
-        private string pathSmallSoft = "C:\\Users\\ilyaz\\Documents\\My_folders\\Education\\Курсовая прог. инж\\PhotoStudioPlanConstructor\\PhotoStudioPlanConstructor\\Софт.png";
-        private string pathBigSoft = "C:\\Users\\ilyaz\\Documents\\My_folders\\Education\\Курсовая прог. инж\\PhotoStudioPlanConstructor\\PhotoStudioPlanConstructor\\СофтБ.png";
-        private string pathOcto = "C:\\Users\\ilyaz\\Documents\\My_folders\\Education\\Курсовая прог. инж\\PhotoStudioPlanConstructor\\PhotoStudioPlanConstructor\\Октобокс.png";
-        private string pathMainObject = "C:\\Users\\ilyaz\\Documents\\My_folders\\Education\\Курсовая прог. инж\\PhotoStudioPlanConstructor\\PhotoStudioPlanConstructor\\Объект.png";
+        private string pathBackground = Application.StartupPath + "\\Фон1.png";
+        private string pathSmallSoft = Application.StartupPath + "\\Софт.png";
+        private string pathBigSoft = Application.StartupPath + "\\СофтБ.png";
+        private string pathOcto = Application.StartupPath + "\\Октобокс.png";
+        private string pathMainObject = Application.StartupPath + "\\Объект.png";
 
         private bool rotating;
         private Thread threadRotate;
