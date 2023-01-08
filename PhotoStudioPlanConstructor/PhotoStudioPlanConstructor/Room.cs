@@ -34,5 +34,14 @@ namespace PhotoStudioPlanConstructor
             return thickness;
         }
 
+        public void ChangeColor(Color clr)
+        {
+            Pen pen = new Pen(Color.Black, thickness);
+            Rectangle r = new Rectangle(0, 0, width - 1, length - 1);
+            Graphics g = Graphics.FromImage(this.room);
+            g.Clear(clr);
+            g.DrawRectangle(pen, r);
+        }
+
     }
 }
