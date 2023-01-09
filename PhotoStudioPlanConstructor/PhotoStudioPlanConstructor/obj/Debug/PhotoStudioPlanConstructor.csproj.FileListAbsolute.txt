@@ -20,3 +20,6 @@ C:\Users\ilyaz\Documents\GitHub\Course\PhotoStudioPlanConstructor\PhotoStudioPla
 C:\Users\ilyaz\Documents\GitHub\Course\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.pdb
 C:\Users\ilyaz\Documents\GitHub\Course\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.Form2.resources
 C:\Users\ilyaz\Documents\GitHub\Course\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.Form3.resources
+C:\Users\ilyaz\Documents\GitHub\Course\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.Save.resources
+C:\Users\ilyaz\Documents\GitHub\Course\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.SaveWarning.resources
+C:\Users\ilyaz\Documents\GitHub\Course\PhotoStudioPlanConstructor\PhotoStudioPlanConstructor\obj\Debug\PhotoStudioPlanConstructor.SaveError.resources

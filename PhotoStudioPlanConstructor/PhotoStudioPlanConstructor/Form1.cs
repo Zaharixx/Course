@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace PhotoStudioPlanConstructor
 {
@@ -50,6 +52,7 @@ namespace PhotoStudioPlanConstructor
 
         private const string SELECTED = "Выбранный элемент: ";
 
+        private bool drawing;
         private bool rotating;
         private Thread threadRotate;
         private delegate void RefreshPBDel(Object ob);
@@ -67,6 +70,7 @@ namespace PhotoStudioPlanConstructor
         {
             InitializeComponent();
             rotating = false;
+            drawing = false;
             room = new Room(pb1.Height, pb1.Width);
             Elements = new Dictionary<string, List<(PlanObject, PictureBox, string)>>() 
             {   
@@ -559,9 +563,33 @@ namespace PhotoStudioPlanConstructor
             pb1.Refresh();
         }
 
+        private void ChangeElemsVisability(bool visability)
+        {
+            foreach (ToolStripMenuItem toolStripItem in toolStripDropDownButton1.DropDownItems)
+            {
+                var elem = GetByName(toolStripItem.Name);
+                elem.Item2.Visible = visability;
+            }
+        }
+
+        private void DrawElements(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void pb1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawImage(room.GetRoomBitmap(), 0, 0, pb1.Width, pb1.Height);
+
+            if (drawing)
+            {
+                foreach(ToolStripMenuItem toolStripItem in toolStripDropDownButton1.DropDownItems)
+                {
+                    var elem = GetByName(toolStripItem.Name);
+                    e.Graphics.DrawImage(elem.Item2.Image, elem.Item1.GetX(), elem.Item1.GetY(), elem.Item1.GetWidth(), elem.Item1.GetHeight());
+                }
+            }
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -602,6 +630,56 @@ namespace PhotoStudioPlanConstructor
         private void scalePB_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*XmlSerializer xml = new XmlSerializer(typeof(Dictionary<string, List<(PlanObject, PictureBox, string)>>));
+            using (FileStream fs = new FileStream("Plan.xml", FileMode.OpenOrCreate))
+            {
+                xml.Serialize(fs, Elements);
+            }
+            */
+            Save saveForm = new Save();
+            saveForm.ShowDialog();
+            try
+            {
+                FileInfo fInfo = new FileInfo(DataBuffer.FilePath);
+                if (fInfo.Exists)
+                {
+                    SaveWarning saveWarningForm = new SaveWarning();
+                    saveWarningForm.ShowDialog();
+                    if (!DataBuffer.yes)
+                    {
+                        DataBuffer.yes = false;
+                        return;
+                    }
+                }
+
+                drawing = true;
+                pb1.Refresh();
+                ChangeElemsVisability(false);
+
+                var ctrl = pb1;
+                Bitmap bmp = new Bitmap(ctrl.Width, ctrl.Height);
+                ctrl.DrawToBitmap(bmp, new Rectangle(Point.Empty, bmp.Size));
+                bmp.Save(DataBuffer.FilePath);
+
+                ChangeElemsVisability(true);
+                drawing = false;
+                DataBuffer.FilePath = "";
+                    
+            }
+            catch (ArgumentException)
+            {
+                SaveError saveErrorForm = new SaveError();
+                saveErrorForm.ShowDialog();
+            }
         }
     }
 }

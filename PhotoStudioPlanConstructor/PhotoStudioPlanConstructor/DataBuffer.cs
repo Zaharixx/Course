@@ -9,5 +9,8 @@ namespace PhotoStudioPlanConstructor
     static class DataBuffer
     {
         public static string Name = "";
+        public static string FilePath = "";
+        public static bool yes = false;
+        public static bool saveClick = false;
     }
 }

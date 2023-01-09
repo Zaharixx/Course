@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace PhotoStudioPlanConstructor
 {
-    class PlanObject
+    public class PlanObject
     {
-        private int width;
-        private int height;
-        private int x;
-        private int y;
-        private float angle;
+        public int width;
+        public int height;
+        public int x;
+        public int y;
+        public float angle;
 
-        private const int defaultsize = 50;
+        public const int defaultsize = 50;
 
         public PlanObject()
         {
