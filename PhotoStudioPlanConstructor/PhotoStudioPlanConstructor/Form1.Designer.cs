@@ -29,26 +29,28 @@ namespace PhotoStudioPlanConstructor
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Большой софт");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Маленький софт");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Октобокс");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Мягкий свет", new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode11,
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Рефлектор");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Жесткий свет", new System.Windows.Forms.TreeNode[] {
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Свет", new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode15});
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Фон");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Объект");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Большой софт");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Маленький софт");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Октобокс");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Мягкий свет", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Рефлектор");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Жесткий свет", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Свет", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Фон");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Объект");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Заметка");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dPlanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +67,6 @@ namespace PhotoStudioPlanConstructor
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.scalePB = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -102,19 +103,26 @@ namespace PhotoStudioPlanConstructor
             this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dPlanToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(151, 34);
             this.newToolStripMenuItem.Text = "New";
             // 
             // dPlanToolStripMenuItem
             // 
             this.dPlanToolStripMenuItem.Name = "dPlanToolStripMenuItem";
-            this.dPlanToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.dPlanToolStripMenuItem.Size = new System.Drawing.Size(176, 34);
             this.dPlanToolStripMenuItem.Text = "2D plan";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(151, 34);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(151, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -135,28 +143,31 @@ namespace PhotoStudioPlanConstructor
             this.treeView1.Location = new System.Drawing.Point(40, 140);
             this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeView1.Name = "treeView1";
-            treeNode10.Name = "Узел4";
-            treeNode10.Text = "Большой софт";
-            treeNode11.Name = "Узел3";
-            treeNode11.Text = "Маленький софт";
-            treeNode12.Name = "Узел4";
-            treeNode12.Text = "Октобокс";
-            treeNode13.Name = "Узел9";
-            treeNode13.Text = "Мягкий свет";
-            treeNode14.Name = "Узел12";
-            treeNode14.Text = "Рефлектор";
-            treeNode15.Name = "Узел10";
-            treeNode15.Text = "Жесткий свет";
-            treeNode16.Name = "Узел3";
-            treeNode16.Text = "Свет";
-            treeNode17.Name = "Узел13";
-            treeNode17.Text = "Фон";
-            treeNode18.Name = "Узел14";
-            treeNode18.Text = "Объект";
+            treeNode1.Name = "Узел4";
+            treeNode1.Text = "Большой софт";
+            treeNode2.Name = "Узел3";
+            treeNode2.Text = "Маленький софт";
+            treeNode3.Name = "Узел4";
+            treeNode3.Text = "Октобокс";
+            treeNode4.Name = "Узел9";
+            treeNode4.Text = "Мягкий свет";
+            treeNode5.Name = "Узел12";
+            treeNode5.Text = "Рефлектор";
+            treeNode6.Name = "Узел10";
+            treeNode6.Text = "Жесткий свет";
+            treeNode7.Name = "Узел3";
+            treeNode7.Text = "Свет";
+            treeNode8.Name = "Узел13";
+            treeNode8.Text = "Фон";
+            treeNode9.Name = "Узел14";
+            treeNode9.Text = "Объект";
+            treeNode10.Name = "Узел0";
+            treeNode10.Text = "Заметка";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode17,
-            treeNode18});
+            treeNode7,
+            treeNode8,
+            treeNode9,
+            treeNode10});
             this.treeView1.Size = new System.Drawing.Size(281, 522);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -278,13 +289,6 @@ namespace PhotoStudioPlanConstructor
             this.label3.Size = new System.Drawing.Size(60, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "1 метр";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // Form1
             // 

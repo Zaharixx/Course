@@ -21,6 +21,7 @@ namespace PhotoStudioPlanConstructor
         private Dictionary<string, int> elementsCount;
 
         private const int bgSize = 200;
+        private const int big2Size = 85;
         private const int bigSize = 60;
         private const int middleSize = 50;
         private const int smallSize = 40;
@@ -36,12 +37,11 @@ namespace PhotoStudioPlanConstructor
         private const string sbName = "softboxes";
         private const string moName = "mainObjects";
         private const string obName = "octoboxes";
+        private const string ntName = "notes";
 
         private const string COLOR1 = "Белый";
         private const string COLOR2 = "Светло-серый";
         private const string COLOR3 = "Коричневый";
-
-        private string activeFloorCl;
 
         private string pathBackground = Application.StartupPath + "\\Фон2.png";
         private string pathSmallSoft = Application.StartupPath + "\\Софт.png";
@@ -74,10 +74,11 @@ namespace PhotoStudioPlanConstructor
             room = new Room(pb1.Height, pb1.Width);
             Elements = new Dictionary<string, List<(PlanObject, PictureBox, string)>>() 
             {   
-                { "backgrounds", new List<(PlanObject, PictureBox, string)>() },
-                { "softboxes", new List<(PlanObject, PictureBox, string)>() },
-                { "octoboxes", new List<(PlanObject, PictureBox, string)>() },
-                { "mainObjects", new List<(PlanObject, PictureBox, string)>() } 
+                { bgName, new List<(PlanObject, PictureBox, string)>() },
+                { sbName, new List<(PlanObject, PictureBox, string)>() },
+                { obName, new List<(PlanObject, PictureBox, string)>() },
+                { moName, new List<(PlanObject, PictureBox, string)>() },
+                { ntName, new List<(PlanObject, PictureBox, string)>() }
             };
             elementsCount = new Dictionary<string, int>();
             actions = new List<ToolStripMenuItem>() 
@@ -106,8 +107,6 @@ namespace PhotoStudioPlanConstructor
             currentElementType = "";
             currentElementIndex = -1;
             currentElementImagePath = "";
-
-            activeFloorCl = COLOR1;
 
             Bitmap scale = new Bitmap(pathScale);
             scale.MakeTransparent(Color.White);
@@ -171,6 +170,18 @@ namespace PhotoStudioPlanConstructor
             UpdateData();
         }
 
+        private void GraphicElement_MouseDoubleClick2(object sender, MouseEventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            NoteEdit noteEditForm = new NoteEdit();
+            noteEditForm.ShowDialog();
+            Note note = (Note)Elements[currentElementType][currentElementIndex].Item1;
+            note.SetText(DataBuffer.Title, DataBuffer.Comment);
+            Elements[currentElementType][currentElementIndex].Item2.Image = note.GetBmp();
+            DataBuffer.Title = "";
+            DataBuffer.Comment = "";
+        }
+
         private void GraphicElement_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             Control control = (Control)sender;
@@ -181,7 +192,7 @@ namespace PhotoStudioPlanConstructor
             }
             else if (e.Control && e.KeyCode == Keys.R)
             { 
-                if (currentElementType != bgName)
+                if (currentElementType != bgName && currentElementType != ntName)
                     RotateElem(sender);
             }
             else if (e.KeyCode == Keys.Enter)
@@ -279,7 +290,7 @@ namespace PhotoStudioPlanConstructor
             currentElementIndex = Elements[currentElementType].FindIndex(obj => obj.Item2 == (PictureBox)control);
             currentElementImagePath = GetElementImagePath(currentElementType, currentElementIndex);
 
-            if (currentElementType == bgName)
+            if (currentElementType == bgName || currentElementType == ntName)
                 {
                     foreach (var action in actions)
                         if (action.Name != ROTATE)
@@ -553,6 +564,32 @@ namespace PhotoStudioPlanConstructor
                 item.Click += toolStripMenuItemClick1;
                 toolStripDropDownButton1.DropDownItems.Add(item);
                 Elements[moName].Add((mainObject, hitbox, name));
+            }
+            else if (e.Node.Text == "Заметка")
+            {
+                hitbox.MouseDoubleClick -= GraphicElement_MouseDoubleClick;
+                hitbox.MouseDoubleClick += GraphicElement_MouseDoubleClick2;
+
+                int size = big2Size;
+                Note note = new Note(pb1.Width / 2 - size / 2, pb1.Height / 2 - size / 2, size);
+                hitbox.Location = new Point(pb1.Location.X + note.GetX(), pb1.Location.Y + note.GetY());
+                hitbox.Width = size;
+                hitbox.Height = size;
+                Bitmap image = note.GetBmp();
+                hitbox.Image = image;
+                this.Controls.Add(hitbox);
+                hitbox.BringToFront();
+
+                if (!elementsCount.ContainsKey(ntName))
+                    elementsCount.Add(ntName, 1);
+                else
+                    elementsCount[ntName]++;
+
+                name = "Заметка " + elementsCount[ntName];
+                ToolStripMenuItem item = new ToolStripMenuItem(name) { Name = name };
+                item.Click += toolStripMenuItemClick1;
+                toolStripDropDownButton1.DropDownItems.Add(item);
+                Elements[ntName].Add((note, hitbox, name));
             }
 
             try

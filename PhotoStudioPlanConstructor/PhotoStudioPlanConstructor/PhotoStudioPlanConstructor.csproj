@@ -68,6 +68,13 @@
     </Compile>
     <Compile Include="MainObject.cs" />
     <Compile Include="Mathematics.cs" />
+    <Compile Include="Note.cs" />
+    <Compile Include="NoteEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoteEdit.Designer.cs">
+      <DependentUpon>NoteEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="OctoBox.cs" />
     <Compile Include="PlanObject.cs" />
     <Compile Include="Program.cs" />
@@ -100,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoteEdit.resx">
+      <DependentUpon>NoteEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
